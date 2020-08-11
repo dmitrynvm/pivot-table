@@ -1,0 +1,87 @@
+{\rtf1\ansi\ansicpg1252\deff0\uc1
+{\fonttbl
+{\f0\fnil\fcharset0\fprq0\fttruetype Arial;}
+{\f1\fnil\fcharset0\fprq0\fttruetype Arimo;}
+{\f2\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\colortbl
+\red0\green0\blue0;
+\red255\green255\blue255;
+\red255\green255\blue255;}
+{\stylesheet
+{\s6\fi-431\li720\sbasedon28\snext28 Contents 1;}
+{\s7\fi-431\li1440\sbasedon28\snext28 Contents 2;}
+{\s1\fi-431\li720 Arrowhead List;}
+{\s27\fi-431\li720\sbasedon28 Lower Roman List;}
+{\s29\tx431\sbasedon20\snext28 Numbered Heading 1;}
+{\s30\tx431\sbasedon21\snext28 Numbered Heading 2;}
+{\s12\fi-431\li720 Diamond List;}
+{\s9\fi-431\li2880\sbasedon28\snext28 Contents 4;}
+{\s8\fi-431\li2160\sbasedon28\snext28 Contents 3;}
+{\s31\tx431\sbasedon22\snext28 Numbered Heading 3;}
+{\s32\fi-431\li720 Numbered List;}
+{\s15\sbasedon28 Endnote Text;}
+{\*\cs14\fs20\super Endnote Reference;}
+{\s4\fi-431\li720 Bullet List;}
+{\s5\tx1584\sbasedon29\snext28 Chapter Heading;}
+{\s35\fi-431\li720 Square List;}
+{\s11\fi-431\li720 Dashed List;}
+{\s22\sb440\sa60\f1\fs24\b\sbasedon28\snext28 Heading 3;}
+{\s37\sbasedon28 Table Normal;}
+{\s24\fi-431\li720 Heart List;}
+{\s38\fi-431\li720 Tick List;}
+{\s42\sbasedon28 normal;}
+{\s41\fi-431\li720\sbasedon32 Upper Roman List;}
+{\s40\fi-431\li720\sbasedon32 Upper Case List;}
+{\s16\fi-288\li288\fs20\sbasedon28 Footnote;}
+{\s19\fi-431\li720 Hand List;}
+{\s18\fs20\sbasedon28 Footnote Text;}
+{\s20\sb440\sa60\f1\fs34\b\sbasedon28\snext28 Heading 1;}
+{\s21\sb440\sa60\f1\fs28\b\sbasedon28\snext28 Heading 2;}
+{\s10\qc\sb240\sa120\f1\fs32\b\sbasedon28\snext28 Contents Header;}
+{\s23\sb440\sa60\f1\fs24\b\sbasedon28\snext28 Heading 4;}
+{\s28\sl276\slmult1\f0\fs22\lang9225\sbasedon28 Normal;}
+{\s26\fi-431\li720\sbasedon32 Lower Case List;}
+{\s2\li1440\ri1440\sa120\sbasedon28 Block Text;}
+{\s33\f2\sbasedon28 Plain Text;}
+{\s34\tx1584\sbasedon29\snext28 Section Heading;}
+{\s25\fi-431\li720 Implies List;}
+{\s3\fi-431\li720 Box List;}
+{\s36\fi-431\li720 Star List;}
+{\*\cs17\fs20\super Footnote Reference;}
+{\s39\fi-431\li720 Triangle List;}
+{\s13\fi-288\li288\sbasedon28 Endnote;}}
+{\*\listtable
+{\list\listtemplateid1000{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li1440{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}{\listlevel\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}\listid120}}
+{\*\listoverridetable
+{\listoverride\listoverridecount0\listid120\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}\ls1}
+{\listoverride\listoverridecount0\listid120\levelnfc23\levelstartat1\levelspace0\levelfollow0\fi-360\li1440{\leveltext\'01\u8226 ;}{\levelnumbers;}\ls2}}
+
+\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\revprop3{\*\rdf}{\info\uc1}\deftab720\viewkind1\paperw12240\paperh15840\margl1440\margr1440\widowctrl
+\sectd\sbknone\colsx360\headery0\footery0\pgncont\ltrsect
+\pard\plain\ltrpar\ql\sl276\slmult1\itap0{\f0\fs22\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Task 2}{\f0\fs22\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\par}
+{\listtext\pard\fi-360\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li720{\*\abilist\abilistid120\abilistparentid0\abilistlevel1\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Create a web dashboard prototype in Python that allows users to:}{\f0\fs22\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-360\li1440\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li1440{\*\abilist\abilistid121\abilistparentid120\abilistlevel2\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl1\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Create slicers and dicers}{\f0\fs22\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-360\li1440\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li1440{\*\abilist\abilistid121\abilistparentid120\abilistlevel2\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl1\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Filters by date range / ...}{\f0\fs22\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-360\li1440\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li1440{\*\abilist\abilistid121\abilistparentid120\abilistlevel2\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl1\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Show data both in table and plotted formats}{\f0\fs22\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-360\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li720{\*\abilist\abilistid120\abilistparentid0\abilistlevel1\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Use paid_amount column for analysis and other columns for filters}{\f0\fs22\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-360\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li720{\*\abilist\abilistid120\abilistparentid0\abilistlevel1\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Don\uc1\u8217\'92t worry about UI and design, just provide very simple functionality}{\f0\fs22\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-360\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li720{\*\abilist\abilistid120\abilistparentid0\abilistlevel1\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch You are free to use Flask / FastAPI / plotly / bokeh / etc.}{\f0\fs22\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-360\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-360\li720{\*\abilist\abilistid120\abilistparentid0\abilistlevel1\abistartat1{\abifieldfont NULL}{\abilistdecimal .}{\abilistdelim %L.}{\abiliststyle None}}{\*\pn\pnql\pnstart1\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Normalize text values in columns. Please, provide your approach to do it in the automatic way as Jupyter notebook. Think about it as you need to update this dashboard monthly and do not have time to normalize values manually}{\f0\fs22\lang1033{\*\listtag0}\par}
+}\pard\plain\ltrpar\ql\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Columns:}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch member_unique_id - member's ID\tab }{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch gender - member's gender}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch dob - member's date of birth}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch eligible_year - year}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch eligible_month - month}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch affiliation_type - doctor's type}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch pbp_group - health plan group}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch plan_name - health plan name}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch npi - doctor's ID}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch line_of_business - health plan type}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch esrd - True if patient is on dialysis}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch hospice - True if patient is in hospice}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch Please provide this task as a python project. You can send it as a zip archive / Git repository / Docker}{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sl276\slmult1\itap0{\f0\fs22\lang1033{\*\listtag0}\par}}

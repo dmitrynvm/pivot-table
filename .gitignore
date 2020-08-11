@@ -1,0 +1,22 @@
+# Local packages
+.DS_Store
+node_modules
+
+# Temp files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor directories and files
+.env
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.lock
