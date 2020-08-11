@@ -23,38 +23,54 @@
 
 <script>
 const data = [
-    {"service":"AncillaryFFS","claim":"-","payer":"Payer F","money":128438},{"service":"AncillaryFFS","claim":"-","payer":"Payer H","money":66624},{"service":"AncillaryFFS","claim":"-","payer":"Payer O","money":118108},{"service":"AncillaryFFS","claim":"-","payer":"Payer W","money":1073},{"service":"AncillaryFFS","claim":"ACH","payer":"Payer W","money":604},{"service":"AncillaryFFS","claim":"Advanced Registered Nurse Prac","payer":"Payer UN","money":0},{"service":"AncillaryFFS","claim":"ADVANCED RN PRACT","payer":"Payer CA","money":1772},{"service":"AncillaryFFS","claim":"AMBULANCE","payer":"Payer CA","money":446698},{"service":"AncillaryFFS","claim":"AMBULANCE","payer":"Payer CO","money":51664},{"service":"AncillaryFFS","claim":"AMBULANCE","payer":"Payer F","money":1083232}
-]
+ {"country": "United States", "year": 2010, "gender": "male", "count": 153295220},
+  {"country": "United States", "year": 2010, "gender": "female", "count": 156588400},
+  {"country": "United States", "year": 2011, "gender": "male", "count": 154591960},
+  {"country": "United States", "year": 2011, "gender": "female", "count": 157800200},
+  {"country": "United States", "year": 2012, "gender": "male", "count": 155851840},
+  {"country": "United States", "year": 2012, "gender": "female", "count": 158944800},
+  {"country": "China", "year": 2010, "gender": "male", "count": 690256342},
+  {"country": "China", "year": 2010, "gender": "female", "count": 650712406},
+  {"country": "China", "year": 2011, "gender": "male", "count": 694106441},
+  {"country": "China", "year": 2011, "gender": "female", "count": 654068030},
+  {"country": "China", "year": 2012, "gender": "male", "count": 697964288},
+  {"country": "China", "year": 2012, "gender": "female", "count": 657422649},
+  {"country": "India", "year": 2010, "gender": "male", "count": 638354751},
+  {"country": "India", "year": 2010, "gender": "female", "count": 592629727},
+  {"country": "India", "year": 2011, "gender": "male", "count": 646873890},
+  {"country": "India", "year": 2011, "gender": "female", "count": 600572093},
+  {"country": "India", "year": 2012, "gender": "male", "count": 655193693},
+  {"country": "India", "year": 2012, "gender": "female", "count": 608395922},
+  {"country": "France", "year": 2010, "gender": "male", "count": 30675773},
+  {"country": "France", "year": 2010, "gender": "female", "count": 32285363},
+  {"country": "France", "year": 2011, "gender": "male", "count": 30815839},
+  {"country": "France", "year": 2011, "gender": "female", "count": 32452566},
+  {"country": "France", "year": 2012, "gender": "male", "count": 30948916},
+  {"country": "France", "year": 2012, "gender": "female", "count": 32612882}]
 
 export default {
   data: () => {
     return {
       data: data,
       fields: [{
-        key: 'service',
-        getter: item => item.service,
-        label: 'Service',
+        key: 'country',
+        getter: item => item.country,
+        label: 'Country',
         valueFilter: true
       }, {
-        key: 'claim',
-        getter: item => item.claim,
-        label: 'Claim',
+        key: 'gender',
+        getter: item => item.gender,
+        label: 'Gender',
         valueFilter: true
       }, {
-        key: 'payer',
-        getter: item => item.payer,
-        label: 'Payer',
+        key: 'year',
+        getter: item => item.year,
+        label: 'Year',
         valueFilter: true
-      }, {
-        key: 'money',
-        getter: item => item.money,
-        label: 'Money',
-        valueFilter: true
-      }
-              ],
-      allFieldKeys: ['service', 'claim', 'payer', 'money'],
-      rowFieldKeys: [],
-      colFieldKeys: [],
+      }],
+      allFieldKeys: [],
+      rowFieldKeys: ['country', 'gender'],
+      colFieldKeys: ['year'],
       reducer: (sum, item) => sum + item.count,
     }
   }
