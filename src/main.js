@@ -1,19 +1,28 @@
 import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
-import VueRouter from 'vue-router'
 import * as plugins from '@/plugins'
-import { GChart } from 'vue-google-charts'
-import PivotTable from '@marketconnect/vue-pivot-table'
 
+import Vuetify from 'vuetify/lib'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
-import 'bootstrap/scss/bootstrap.scss';
-
-
-Vue.config.productionTip = false
-Vue.component('gchart', GChart)
-Vue.component('pivot-table', PivotTable)
-Vue.use(PivotTable)
 Vue.use(Vuetify)
+
+import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+import { GChart } from 'vue-google-charts'
+Vue.component('gchart', GChart)
+
+import PivotTable from '@marketconnect/vue-pivot-table'
+import 'bootstrap/scss/bootstrap.scss';
+Vue.use(PivotTable)
+Vue.component('pivot-table', PivotTable)
+
+import TreeSelect from '@riophae/vue-treeselect'
+import '@riophae/vue-treeselect/dist/vue-treeselect.css'
+Vue.component('tree-select', TreeSelect)
+
+import VueGoodTable from 'vue-good-table'
+import 'vue-good-table/dist/vue-good-table.css'
+Vue.use(VueGoodTable)
+
+Vue.config.productionTip = false
 export default new Vue(plugins).$mount('#app')

@@ -1,78 +1,50 @@
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  components: {
+    "select-options-dialog": () => import("@/components/dashboard-page/select-options-dialog")
+  },
+  computed: mapGetters({
+    "headers": "dashboard/headers",
+    "items": "dashboard/items",
+    "cols": "dashboard/cols",
+    "rows": "dashboard/rows",
+  }),
+}
+</script>
+
 <template>
   <v-container class="fill-height">
+    <select-options-dialog/>
     <v-row
       justify="center"
       align="center"
     >
-      <pivot-table
-        :data="data"
-        :fields="fields"
-        :available-field-keys="allFieldKeys"
-        :row-field-keys="rowFieldKeys"
-        :col-field-keys="colFieldKeys"
-        :reducer="reducer"
-        :default-show-settings="true"
-      >
-      <template slot="value" slot-scope="{ value }">
-        {{ value.toLocaleString() }}
-      </template>
-    </pivot-table>
+      <v-card flat>
+        <v-card-title
+          class="justify-center"
+        >
+        </v-card-title>
+        <v-card-text>
+          <vue-good-table
+            v-if="cols && rows"
+            :columns="cols"
+            :rows="rows"
+            :pagination-options="{
+              enabled: true,
+              mode: 'records',
+              perPage: 10,
+              setCurrentPage: 1,
+              nextLabel: 'next',
+              prevLabel: 'prev',
+            }"
+            :sort-options="{
+              enabled: false,
+            }"
+          />
+        </v-card-text>
+      </v-card>
     </v-row>
   </v-container>
 </template>
-
-<script>
-const data = [
- {"country": "United States", "year": 2010, "gender": "male", "count": 153295220},
-  {"country": "United States", "year": 2010, "gender": "female", "count": 156588400},
-  {"country": "United States", "year": 2011, "gender": "male", "count": 154591960},
-  {"country": "United States", "year": 2011, "gender": "female", "count": 157800200},
-  {"country": "United States", "year": 2012, "gender": "male", "count": 155851840},
-  {"country": "United States", "year": 2012, "gender": "female", "count": 158944800},
-  {"country": "China", "year": 2010, "gender": "male", "count": 690256342},
-  {"country": "China", "year": 2010, "gender": "female", "count": 650712406},
-  {"country": "China", "year": 2011, "gender": "male", "count": 694106441},
-  {"country": "China", "year": 2011, "gender": "female", "count": 654068030},
-  {"country": "China", "year": 2012, "gender": "male", "count": 697964288},
-  {"country": "China", "year": 2012, "gender": "female", "count": 657422649},
-  {"country": "India", "year": 2010, "gender": "male", "count": 638354751},
-  {"country": "India", "year": 2010, "gender": "female", "count": 592629727},
-  {"country": "India", "year": 2011, "gender": "male", "count": 646873890},
-  {"country": "India", "year": 2011, "gender": "female", "count": 600572093},
-  {"country": "India", "year": 2012, "gender": "male", "count": 655193693},
-  {"country": "India", "year": 2012, "gender": "female", "count": 608395922},
-  {"country": "France", "year": 2010, "gender": "male", "count": 30675773},
-  {"country": "France", "year": 2010, "gender": "female", "count": 32285363},
-  {"country": "France", "year": 2011, "gender": "male", "count": 30815839},
-  {"country": "France", "year": 2011, "gender": "female", "count": 32452566},
-  {"country": "France", "year": 2012, "gender": "male", "count": 30948916},
-  {"country": "France", "year": 2012, "gender": "female", "count": 32612882}]
-
-export default {
-  data: () => {
-    return {
-      data: data,
-      fields: [{
-        key: 'country',
-        getter: item => item.country,
-        label: 'Country',
-        valueFilter: true
-      }, {
-        key: 'gender',
-        getter: item => item.gender,
-        label: 'Gender',
-        valueFilter: true
-      }, {
-        key: 'year',
-        getter: item => item.year,
-        label: 'Year',
-        valueFilter: true
-      }],
-      allFieldKeys: [],
-      rowFieldKeys: ['country', 'gender'],
-      colFieldKeys: ['year'],
-      reducer: (sum, item) => sum + item.count,
-    }
-  }
-}
-</script>
