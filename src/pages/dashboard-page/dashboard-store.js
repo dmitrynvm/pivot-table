@@ -1,4 +1,5 @@
 import agent from 'superagent'
+import { loadingStore } from '@/components/dashboard-page/loading-overlay'
 import { selectOptionsStore } from '@/components/dashboard-page/select-options-dialog'
 
 const namespaced = true
@@ -48,6 +49,7 @@ const mutations = {
 }
 
 const modules = {
+  'loading': loadingStore,
   'select-options': selectOptionsStore
 }
 

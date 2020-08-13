@@ -12,6 +12,7 @@ export default {
   }),
   methods: mapActions({
     "close" : "dashboard/select-options/close",
+    "drill" : "dashboard/select-options/drill",
     "submit" : "dashboard/select-options/submit",
   }),
   data() {
@@ -82,6 +83,7 @@ export default {
                   >
                     <span v-if="props.column.field == 'action'">
                       <v-btn
+                        @click="drill(props.row.originalIndex)"
                         icon
                         x-small
                       >

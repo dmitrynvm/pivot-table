@@ -2,12 +2,9 @@
 import { mapActions } from 'vuex'
 
 export default {
-    methods: {
-    ...mapActions({
-      "fetch": "dashboard/fetch",
-      "open": "dashboard/select-options/open",
-    }),
-      }
+  methods: mapActions({
+    "open": "dashboard/select-options/open",
+  }),
 }
 </script>
 
@@ -35,14 +32,6 @@ export default {
         Dashboard
       </v-toolbar-title>
       <v-spacer />
-      <v-btn
-        @click="fetch"
-        icon
-      >
-        <v-icon>
-          cached
-        </v-icon>
-      </v-btn>
       <v-btn
         @click="open"
         icon

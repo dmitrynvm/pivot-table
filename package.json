@@ -5,7 +5,8 @@
   "scripts": {
     "start": "yarn install; vue-cli-service serve",
     "api": "cd api; python3 main.py",
-    "build": "yarn install; vue-cli-service build --dest build"
+    "build": "yarn install; vue-cli-service build --dest build",
+    "clean": "find . | grep -E \"(__pycache__|\\.pyc|\\.pyo$)\" | xargs rm -rf"
   },
   "dependencies": {
     "@marketconnect/vue-pivot-table": "^1.0.0",

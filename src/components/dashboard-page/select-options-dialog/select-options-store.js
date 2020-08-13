@@ -26,7 +26,7 @@ const getters = {
   },
   subitems: (state) => {
     //console.log(JSON.stringify(state.subitems))
-    return state.subitems[1].children
+    return state.subitems[state.active].children
     //return state.subitems
   },
   visible: (state) => {
@@ -37,6 +37,9 @@ const getters = {
 const actions = {
   close: ({ commit }) => {
     commit('setVisible', false)
+  },
+  drill: ({ commit }, id) => {
+    commit('setActive', id)
   },
   fetch: async ({ commit }) => {
     const { body } = await agent.get('/options')
@@ -56,6 +59,9 @@ const actions = {
 }
 
 const mutations = {
+  setActive: (state, active) => {
+    state.active = active
+  },
   setVisible: (state, visible) => {
     state.visible = visible
   },
