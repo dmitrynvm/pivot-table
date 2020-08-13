@@ -3,7 +3,12 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   computed: mapGetters({
+    "active" : "dashboard/select-options/active",
     "visible" : "dashboard/select-options/visible",
+    "headers" : "dashboard/select-options/headers",
+    "items" : "dashboard/select-options/items",
+    "subheaders" : "dashboard/select-options/subheaders",
+    "subitems" : "dashboard/select-options/subitems",
   }),
   methods: mapActions({
     "close" : "dashboard/select-options/close",
@@ -15,15 +20,6 @@ export default {
     }
   }
 }
-/*
- *
-                  <tree-select
-                    v-model="selected"
-                    :multiple="true"
-                    :max-height="200"
-                    placeholder="Select your records..."
-                  />
-                  */
 </script>
 
 
@@ -33,13 +29,12 @@ export default {
     @click:outside="close"
     @keydown.enter="submit"
     @keydown.esc="close"
-    hide-overlay
-    width="800"
+    max-width="700px"
   >
     <v-card>
       <v-card-title>
         <span>
-          Data Selection Options
+          What Data to Display?
         </span>
         <v-spacer />
         <v-btn
@@ -52,18 +47,93 @@ export default {
           </v-icon>
         </v-btn>
       </v-card-title>
-        <v-card-text style="height: 400px">
-          <v-form>
-            <table cellspacing="3">
-              <tr>
-                <td>
-                  Slicers / Dicers
-                </td>
-                <td>
-                </td>
-              </tr>
-            </table>
-          </v-form>
+        <v-card-text>
+          <table cellspacing="3">
+            <v-row>
+              <v-col>
+                <vue-good-table
+                  v-if="headers && items"
+                  :columns="headers"
+                  :rows="items"
+                  :pagination-options="{
+                    enabled: true,
+                    mode: 'records',
+                    perPage: 10,
+                    setCurrentPage: 1,
+                    nextLabel: 'next',
+                    prevLabel: 'prev',
+                    rowsPerPageLabel: 'Rows',
+                    nextLabel: '',
+                    prevLabel: '',
+                  }"
+                  :sort-options="{
+                    enabled: false,
+                  }"
+                  :select-options="{
+                    disableSelectInfo: true,
+                    enabled: true,
+                    selectOnCheckboxOnly: true
+                  }"
+                  compactMode
+                >
+                  <template
+                    slot="table-row"
+                    slot-scope="props"
+                  >
+                    <span v-if="props.column.field == 'action'">
+                      <v-btn
+                        icon
+                        x-small
+                      >
+                        <div v-if="props.row.id == active">
+                          <v-icon
+                        class="ma-0 pa-0"
+                            >
+                            arrow_right
+                          </v-icon>
+                        </div>
+                        <div v-else>
+                          <v-icon>
+                            arrow_drop_down
+                          </v-icon>
+                        </div>
+                      </v-btn>
+                    </span>
+                    <span v-else>
+                      {{ props.formattedRow[props.column.field] }}
+                    </span>
+                  </template>
+                </vue-good-table>
+              </v-col>
+              <v-col>
+                <vue-good-table
+                  v-if="subheaders && subitems"
+                  :columns="subheaders"
+                  :rows="subitems"
+                  :pagination-options="{
+                    enabled: true,
+                    mode: 'records',
+                    perPage: 10,
+                    setCurrentPage: 1,
+                    nextLabel: 'next',
+                    prevLabel: 'prev',
+                    rowsPerPageLabel: 'Rows',
+                    nextLabel: '',
+                    prevLabel: '',
+                  }"
+                  :sort-options="{
+                    enabled: false,
+                  }"
+                  :select-options="{
+                    enabled: true,
+                    disableSelectInfo: true
+                  }"
+                  compactMode
+                >
+                </vue-good-table>
+              </v-col>
+            </v-row>
+          </table>
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
@@ -85,7 +155,7 @@ export default {
             class="mx-1"
             left
           >
-            play_arrow
+            done
           </v-icon>
           <span>
             Apply

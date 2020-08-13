@@ -3,17 +3,31 @@ import agent from 'superagent'
 const namespaced = true
 
 const state = {
+  active: 0,
   visible: false,
   headers: [],
-  items: []
+  items: [],
+  subheaders: [],
+  subitems: [],
 }
 
 const getters = {
+  active: (state) => {
+    return state.active
+  },
   headers: (state) => {
     return state.headers
   },
   items: (state) => {
     return state.items
+  },
+  subheaders: (state) => {
+    return state.subheaders
+  },
+  subitems: (state) => {
+    //console.log(JSON.stringify(state.subitems))
+    return state.subitems[1].children
+    //return state.subitems
   },
   visible: (state) => {
     return state.visible
@@ -24,9 +38,13 @@ const actions = {
   close: ({ commit }) => {
     commit('setVisible', false)
   },
-  fetch: async () => {
+  fetch: async ({ commit }) => {
     const { body } = await agent.get('/options')
-    console.log(body)
+    commit('setHeaders', body.headers)
+    commit('setItems', body.items)
+    commit('setSubheaders', body.subheaders)
+    commit('setSubitems', body.subitems)
+    console.log(JSON.stringify(body.subheaders))
   },
   open: ({ commit, dispatch }) => {
     dispatch('fetch')
@@ -34,9 +52,6 @@ const actions = {
   },
   submit({ dispatch }) {
     dispatch('close')
-  },
-  greet: () => {
-    alert('coool')
   },
 }
 
@@ -49,6 +64,13 @@ const mutations = {
   },
   setItems: (state, items) => {
     state.items = items
+  },
+  setSubheaders: (state, subheaders) => {
+    state.subheaders = subheaders
+  },
+  setSubitems: (state, subitems) => {
+    console.log(JSON.stringify(subitems))
+    state.subitems = subitems
   },
 }
 

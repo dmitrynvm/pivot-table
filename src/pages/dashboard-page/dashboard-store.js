@@ -33,8 +33,6 @@ const getters = {
 const actions = {
   fetch: async ({ commit }) => {
     const { body } = await agent.get('/dashboard')
-    console.log(JSON.stringify(body.headers))
-    console.log(JSON.stringify(body.items))
     commit('setHeaders', body.headers)
     commit('setItems', body.items)
   },

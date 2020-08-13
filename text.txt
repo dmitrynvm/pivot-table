@@ -1,0 +1,10 @@
+yarn run v1.22.4
+$ cd api; python3 main.py
+[2020-08-13 15:00:19 +0300] [3615] [INFO] Goin' Fast @ http://0.0.0.0:8000
+[2020-08-13 15:00:19 +0300] [3615] [INFO] Starting worker [3615]
+[2020-08-13 15:01:29 +0300] [3615] [INFO] Stopping worker [3615]
+[2020-08-13 15:01:29 +0300] [3615] [INFO] Server Stopped
+[2020-08-13 15:01:29 +0300] [3662] [INFO] Goin' Fast @ http://0.0.0.0:8000
+[2020-08-13 15:01:29 +0300] [3662] [INFO] Starting worker [3662]
+[2020-08-13 15:01:34 +0300] [3662] [INFO] Stopping worker [3662]
+[2020-08-13 15:01:34 +0300] [3662] [INFO] Server Stopped

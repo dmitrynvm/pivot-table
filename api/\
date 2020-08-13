@@ -41,88 +41,27 @@ def jsonify(input):
     return output
 
 
-def options_headers(input):
-    output = []
-    output.append({
-        'field': 'name',
-        'label': 'Columns',
-        'type': 'string',
-        'width': '220px'
-    })
-    output.append({
-        'field': 'action',
-        'label': '',
-        'width': '30px'
-    })
-    return output
-
-
-def options_items(input):
-    output = []
-    for idx, col in enumerate(input.columns):
-        output.append({
-            'id': idx,
-            'name': col,
-            'vgtSelected': True
-        })
-    return output
-
-
-def options_subheaders(input):
-    output = []
-    output.append({
-        'field': 'name',
-        'label': 'Values',
-        'type': 'string',
-        'width': '270px'
-    })
-    return output
-
-
-def options_subitems(input):
+def get_options(input):
     output = []
     filled = input.fillna('-')
-    not_nan = lambda x: x != '-'
     for i, col in enumerate(filled.columns):
         cleaned = filled[col].apply(clean)
         cleaned.replace('True', 'true')
         cleaned.replace('False', 'false')
-        vals = filter(not_nan, list(cleaned.unique()))
+        vals = list(cleaned.unique())
         children = []
         for si, val in enumerate(vals):
-            children.append({
-                'id': int(si),
-                'name': val,
-                'vgtSelected': True
-            })
-        output.append({
-            'children': children
-        })
-    return output
-
-'''
-def options_headers(input):
-    output = []
-    filled = input.fillna('-')
-    not_nan = lambda x: x != '-'
-    for i, col in enumerate(filled.columns):
-        cleaned = filled[col].apply(clean)
-        cleaned.replace('True', 'true')
-        cleaned.replace('False', 'false')
-        vals = filter(not_nan, list(cleaned.unique()))
-        children = []
-        for si, val in enumerate(vals):
-            children.append({
+            child = {
                 'id': str(i) + '-' + str(si),
                 'label': str(val)
-            })
+            }
+            children.append(child)
         output.append({
             'id': i,
             'label': col,
             'children': children
         })
     return output
-'''
 
 
 @app.route("/dashboard")
@@ -143,19 +82,15 @@ async def options(request):
     Request handler that loads the input dataframe and returns the data in json-format
     '''
     output = {
-        'headers': options_headers(db),
-        'items': options_items(db),
-        'subheaders': options_subheaders(db),
-        'subitems': options_subitems(db),
+        'headers': get_options(db)
     }
+    print(output)
     return sanic.response.json(output)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
-    '''
-    output = options_headers(db)
+    #app.run(host="0.0.0.0", port=8000, debug=True)
+    output = {
+        'headers': get_options(db)
+    }
     print(output)
-    output = options_subitems(db)
-    print(output)
-    '''
