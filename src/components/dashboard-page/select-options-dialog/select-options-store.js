@@ -3,7 +3,7 @@ import agent from 'superagent'
 const namespaced = true
 
 const state = {
-  active: 0,
+  active: -1,
   visible: false,
   headers: [],
   items: [],
@@ -25,9 +25,11 @@ const getters = {
     return state.subheaders
   },
   subitems: (state) => {
-    //console.log(JSON.stringify(state.subitems))
-    return state.subitems[state.active].children
-    //return state.subitems
+    if( state.active == -1) {
+      return []
+    } else {
+      return state.subitems[state.active].children
+    }
   },
   visible: (state) => {
     return state.visible
@@ -35,6 +37,23 @@ const getters = {
 }
 
 const actions = {
+  check_column: ({ commit }, params) => {
+    let selected_items = []
+    for (var item of params.selectedRows) {
+      selected_items.push(item.id)
+    }
+    commit('dashboard/setSelectedItems', selected_items, {root: true})
+  },
+  check_value: ({ commit, state }, params) => {
+    if(params.selectedRows.length < state.subitems[state.active].children.length) {
+      let selected_subitems = []
+      for (var item of params.selectedRows) {
+        selected_subitems.push(item.value)
+      }
+      const key = state.items[state.active].name
+      commit('dashboard/setSelectedSubitems', {[key]: selected_subitems}, {root: true})
+    }
+  },
   close: ({ commit }) => {
     commit('setVisible', false)
   },
@@ -47,14 +66,9 @@ const actions = {
     commit('setItems', body.items)
     commit('setSubheaders', body.subheaders)
     commit('setSubitems', body.subitems)
-    console.log(JSON.stringify(body.subheaders))
   },
-  open: ({ commit, dispatch }) => {
-    dispatch('fetch')
+  open: ({ commit }) => {
     commit('setVisible', true)
-  },
-  submit({ dispatch }) {
-    dispatch('close')
   },
 }
 
@@ -75,7 +89,6 @@ const mutations = {
     state.subheaders = subheaders
   },
   setSubitems: (state, subitems) => {
-    console.log(JSON.stringify(subitems))
     state.subitems = subitems
   },
 }

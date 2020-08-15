@@ -11,9 +11,11 @@ export default {
     "subitems" : "dashboard/select-options/subitems",
   }),
   methods: mapActions({
+    "check_column" : "dashboard/select-options/check_column",
+    "check_value" : "dashboard/select-options/check_value",
     "close" : "dashboard/select-options/close",
     "drill" : "dashboard/select-options/drill",
-    "submit" : "dashboard/select-options/submit",
+    "submit" : "dashboard/submit",
   }),
   data() {
     return {
@@ -54,6 +56,7 @@ export default {
               <v-col>
                 <vue-good-table
                   v-if="headers && items"
+                  @on-selected-rows-change="check_column"
                   :columns="headers"
                   :rows="items"
                   :pagination-options="{
@@ -89,8 +92,8 @@ export default {
                       >
                         <div v-if="props.row.id == active">
                           <v-icon
-                        class="ma-0 pa-0"
-                            >
+                            class="ma-0 pa-0"
+                          >
                             arrow_right
                           </v-icon>
                         </div>
@@ -110,6 +113,7 @@ export default {
               <v-col>
                 <vue-good-table
                   v-if="subheaders && subitems"
+                  @on-selected-rows-change="check_value"
                   :columns="subheaders"
                   :rows="subitems"
                   :pagination-options="{
@@ -154,6 +158,7 @@ export default {
             width="110"
           >
           <v-icon
+            @click="submit"
             class="mx-1"
             left
           >

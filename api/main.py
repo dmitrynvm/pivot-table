@@ -6,7 +6,7 @@ from numpyencoder import NumpyEncoder
 
 
 app = sanic.Sanic("App Name")
-db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)#[:10]
+db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)[:100]
 
 
 def clean(input):
@@ -29,16 +29,6 @@ def clean(input):
     return output
 
 
-def jsonify(input):
-    '''
-    Converts dataframe 'input' in more convinient for frontend json-format
-    '''
-    output = []
-    filled = input.fillna('-')
-    for id, vals in filled.iterrows():
-        cleaned = [id] + [clean(val) for val in vals]
-        output.append(dict(zip(['id'] + list(input.columns), cleaned)))
-    return output
 
 
 def options_headers(input):
@@ -71,8 +61,8 @@ def options_items(input):
 def options_subheaders(input):
     output = []
     output.append({
-        'field': 'name',
-        'label': 'Values',
+        'field': 'value',
+        'label': 'Value',
         'type': 'string',
         'width': '270px'
     })
@@ -92,7 +82,7 @@ def options_subitems(input):
         for si, val in enumerate(vals):
             children.append({
                 'id': int(si),
-                'name': val,
+                'value': val,
                 'vgtSelected': True
             })
         output.append({
@@ -100,29 +90,27 @@ def options_subitems(input):
         })
     return output
 
-'''
-def options_headers(input):
+
+def dashboard_headers(input):
     output = []
-    filled = input.fillna('-')
-    not_nan = lambda x: x != '-'
-    for i, col in enumerate(filled.columns):
-        cleaned = filled[col].apply(clean)
-        cleaned.replace('True', 'true')
-        cleaned.replace('False', 'false')
-        vals = filter(not_nan, list(cleaned.unique()))
-        children = []
-        for si, val in enumerate(vals):
-            children.append({
-                'id': str(i) + '-' + str(si),
-                'label': str(val)
-            })
+    for column in input.columns:
         output.append({
-            'id': i,
-            'label': col,
-            'children': children
+            'label': column,
+            'field': column,
         })
     return output
-'''
+
+
+def dashboard_items(input):
+    '''
+    Converts dataframe 'input' in more convinient for frontend json-format
+    '''
+    output = []
+    filled = input.fillna('-')
+    for id, vals in filled.iterrows():
+        cleaned = [id] + [clean(val) for val in vals]
+        output.append(dict(zip(['id'] + list(input.columns), cleaned)))
+    return output
 
 
 @app.route("/dashboard")
@@ -131,8 +119,8 @@ async def dashboard(request):
     Request handler that loads the input dataframe and returns the data in json-format
     '''
     output = {
-        'headers': list(db.columns),
-        'items': jsonify(db)
+        'headers': dashboard_headers(db),
+        'items': dashboard_items(db)
     }
     return sanic.response.json(output)
 

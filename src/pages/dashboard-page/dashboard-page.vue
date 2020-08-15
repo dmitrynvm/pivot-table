@@ -9,8 +9,6 @@ export default {
   computed: mapGetters({
     "headers": "dashboard/headers",
     "items": "dashboard/items",
-    "cols": "dashboard/cols",
-    "rows": "dashboard/rows",
   }),
   methods: mapActions({
     "dashboard_fetch": "dashboard/fetch",
@@ -19,10 +17,10 @@ export default {
     "loading_close": "dashboard/loading/close",
   }),
   async created() {
-    await this.dashboard_fetch()
     await this.select_options_fetch()
-    await this.select_options_open()
+    await this.dashboard_fetch()
     await this.loading_close()
+    this.select_options_open()
   }
 }
 </script>
@@ -42,9 +40,9 @@ export default {
         </v-card-title>
         <v-card-text>
           <vue-good-table
-            v-if="cols && rows"
-            :columns="cols"
-            :rows="rows"
+            v-if="headers && items"
+            :columns="headers"
+            :rows="items"
             :pagination-options="{
               enabled: true,
               mode: 'records',
