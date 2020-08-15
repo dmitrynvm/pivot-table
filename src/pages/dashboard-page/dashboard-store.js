@@ -10,6 +10,8 @@ const state = {
   items: [],
   selected_items: [],
   selected_subitems: {},
+  start_date: '1950-01-30',
+  final_date: '1970-01-30',
 }
 
 const getters = {
@@ -25,6 +27,12 @@ const getters = {
   items: (state) => {
     return state.items
   },
+  start_date: (state) => {
+    return state.start_date
+  },
+  final_date: (state) => {
+    return state.final_date
+  },
 }
 
 
@@ -35,7 +43,7 @@ const actions = {
     commit('setMaster', body.items)
     commit('setItems', body.items)
   },
-  submit({ commit, state }) {
+  submit({ commit, dispatch, state }) {
     let output = []
     const headers = Object.keys(state.selected_subitems)
     for(let item of state.master) {
@@ -45,11 +53,19 @@ const actions = {
         let current_value = item[header]
         is_valid *= admissible_values.indexOf(current_value) != -1
       }
+
+      const [day, month, year] = item['dob'].split('/')
+      let fmt_date = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+      console.log('dates: ' + state.start_date + ' ' + fmt_date + ' ' + state.final_date + ' ' + ((state.start_date < fmt_date) && (fmt_date < state.final_date)))
+      //console.log('inequal: ' )
+
+      is_valid = is_valid && (state.start_date < fmt_date) && (fmt_date < state.final_date)
       if(is_valid) {
         output.push(item)
       }
-      commit('setItems', output)
     }
+    commit('setItems', output)
+    dispatch('dashboard/select-options/close', null, {root: true})
   },
 }
 
@@ -70,6 +86,12 @@ const mutations = {
     for(let key of Object.keys(payload)) {
       state.selected_subitems[key] = payload[key]
     }
+  },
+  setStartDate(state, start_date) {
+    state.start_date = start_date
+  },
+  setFinalDate(state, final_date) {
+    state.final_date = final_date
   },
 }
 

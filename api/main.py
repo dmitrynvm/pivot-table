@@ -77,7 +77,7 @@ def options_subitems(input):
         cleaned = filled[col].apply(clean)
         cleaned.replace('True', 'true')
         cleaned.replace('False', 'false')
-        vals = filter(not_nan, list(cleaned.unique()))
+        vals = sorted(filter(not_nan, list(cleaned.unique())))
         children = []
         for si, val in enumerate(vals):
             children.append({
@@ -94,10 +94,19 @@ def options_subitems(input):
 def dashboard_headers(input):
     output = []
     for column in input.columns:
-        output.append({
-            'label': column,
-            'field': column,
-        })
+        if column == 'dob':
+            output.append({
+                'label': column,
+                'field': column,
+                'type': 'date',
+                'dateInputFormat': 'dd/MM/yyyy',
+                'dateOutputFormat': 'dd/MM/yyyy',
+            })
+        else:
+            output.append({
+                'label': column,
+                'field': column,
+            })
     return output
 
 
@@ -106,7 +115,7 @@ def dashboard_items(input):
     Converts dataframe 'input' in more convinient for frontend json-format
     '''
     output = []
-    filled = input.fillna('-')
+    filled = input.fillna('-')#.sort_values(by='dob')
     for id, vals in filled.iterrows():
         cleaned = [id] + [clean(val) for val in vals]
         output.append(dict(zip(['id'] + list(input.columns), cleaned)))

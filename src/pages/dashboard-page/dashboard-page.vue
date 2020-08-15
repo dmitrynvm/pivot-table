@@ -52,7 +52,7 @@ export default {
               prevLabel: 'prev',
             }"
             :sort-options="{
-              enabled: false,
+              enabled: true,
             }"
           />
         </v-card-text>
