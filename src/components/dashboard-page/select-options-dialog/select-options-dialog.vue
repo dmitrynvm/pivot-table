@@ -24,6 +24,12 @@ export default {
       "items" : "dashboard/select-options/items",
       "subheaders" : "dashboard/select-options/subheaders",
       "subitems" : "dashboard/select-options/subitems",
+      "series" : "dashboard/select-options/series",
+      "options" : "dashboard/select-options/options",
+      "charts_xheaders" : "dashboard/select-options/charts_xheaders",
+      "charts_xitems" : "dashboard/select-options/charts_xitems",
+      "charts_yheaders" : "dashboard/select-options/charts_yheaders",
+      "charts_yitems" : "dashboard/select-options/charts_yitems",
     }),
     mstart_date: {
       get () {
@@ -40,6 +46,22 @@ export default {
       set (final_date) {
         this.setFinalDate(parseDate(final_date))
       }
+    },
+    mcharts_xitems: {
+      get () {
+        return this.charts_xitems
+      },
+      set (charts_xitems) {
+        this.setChartsXItems(charts_xitems)
+      }
+    },
+    mcharts_yitems: {
+      get () {
+        return this.charts_yitems
+      },
+      set (charts_yitems) {
+        this.setChartsYItems(charts_yitems)
+      }
     }
   },
   methods: {
@@ -53,12 +75,14 @@ export default {
     ...mapMutations({
       "setStartDate" : "dashboard/setStartDate",
       "setFinalDate" : "dashboard/setFinalDate",
+      "setChartsXItems" : "dashboard/select-options/setChartsXItems",
+      "setChartsYItems" : "dashboard/select-options/setChartsYItems",
     }),
   },
   data: () => ({
     selected: [],
     tab: 0,
-    counter: 0
+    counter: 0,
   }),
 }
 </script>
@@ -210,6 +234,30 @@ export default {
             </span>
           </v-card-title>
           <v-card-text>
+              <v-row>
+                <v-col cols="12" sm="6">
+                  <tree-select
+                    v-model=mcharts_xitems
+                    :options="charts_xheaders"
+                    :multiple="false"
+                  />
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <tree-select
+                    v-model=mcharts_yitems
+                    :options="charts_yheaders"
+                    :multiple="true"
+                    :limit=5
+                  />
+                </v-col>
+                <v-col cols="12" sm="12">
+                  <gchart
+                    type="LineChart"
+                    :data="series"
+                    :options="options"
+                  />
+                </v-col>
+              </v-row>
           </v-card-text>
         </v-card>
       </v-tab-item>

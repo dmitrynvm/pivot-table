@@ -1,4 +1,5 @@
 import pandas
+import numpy
 import sanic
 import json
 from numpyencoder import NumpyEncoder
@@ -7,6 +8,37 @@ from numpyencoder import NumpyEncoder
 
 app = sanic.Sanic("App Name")
 db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)[:100]
+
+
+def dashboard_headers(input):
+    output = []
+    for column in input.columns:
+        if column == 'dob':
+            output.append({
+                'label': column,
+                'field': column,
+                'type': 'date',
+                'dateInputFormat': 'dd/MM/yyyy',
+                'dateOutputFormat': 'dd/MM/yyyy',
+            })
+        else:
+            output.append({
+                'label': column,
+                'field': column,
+            })
+    return output
+
+
+def dashboard_items(input):
+    '''
+    Converts dataframe 'input' in more convinient for frontend json-format
+    '''
+    output = []
+    filled = input.fillna('-')#.sort_values(by='dob')
+    for id, vals in filled.iterrows():
+        cleaned = [id] + [clean(val) for val in vals]
+        output.append(dict(zip(['id'] + list(input.columns), cleaned)))
+    return output
 
 
 def clean(input):
@@ -27,8 +59,6 @@ def clean(input):
     else:
         output = str(input)
     return output
-
-
 
 
 def options_headers(input):
@@ -91,34 +121,26 @@ def options_subitems(input):
     return output
 
 
-def dashboard_headers(input):
-    output = []
-    for column in input.columns:
-        if column == 'dob':
-            output.append({
-                'label': column,
-                'field': column,
-                'type': 'date',
-                'dateInputFormat': 'dd/MM/yyyy',
-                'dateOutputFormat': 'dd/MM/yyyy',
-            })
-        else:
-            output.append({
-                'label': column,
-                'field': column,
-            })
+def options_series():
+    output = [
+        ['Year', 'Sales', 'Expenses'],
+        ['2013', 1000,      400],
+        ['2014', 1170,      460],
+        ['2015',  660,       1120],
+        ['2016',  1030,      540]
+    ]
     return output
 
 
-def dashboard_items(input):
-    '''
-    Converts dataframe 'input' in more convinient for frontend json-format
-    '''
-    output = []
-    filled = input.fillna('-')#.sort_values(by='dob')
-    for id, vals in filled.iterrows():
-        cleaned = [id] + [clean(val) for val in vals]
-        output.append(dict(zip(['id'] + list(input.columns), cleaned)))
+def options_options():
+    output = {
+        'legend': {
+            'position': 'top',
+            'alignment': 'center'
+        },
+        'height': 500,
+        'pointSize': 5,
+    }
     return output
 
 
@@ -144,6 +166,8 @@ async def options(request):
         'items': options_items(db),
         'subheaders': options_subheaders(db),
         'subitems': options_subitems(db),
+        'series': options_series(),
+        'options': options_options()
     }
     return sanic.response.json(output)
 

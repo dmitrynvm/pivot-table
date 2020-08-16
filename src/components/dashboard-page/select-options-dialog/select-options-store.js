@@ -9,6 +9,12 @@ const state = {
   items: [],
   subheaders: [],
   subitems: [],
+  series: [],
+  options: [],
+  charts_xheaders: [],
+  charts_xitems: 1,
+  charts_yheaders: [],
+  charts_yitems: [],
 }
 
 const getters = {
@@ -33,6 +39,24 @@ const getters = {
   },
   visible: (state) => {
     return state.visible
+  },
+  series: (state) => {
+    return state.series
+  },
+  options: (state) => {
+    return state.options
+  },
+  charts_xheaders: (state) => {
+    return state.charts_xheaders
+  },
+  charts_xitems: (state) => {
+    return state.charts_xitems
+  },
+  charts_yheaders: (state) => {
+    return state.charts_yheaders
+  },
+  charts_yitems: (state) => {
+    return state.charts_yitems
   },
 }
 
@@ -66,6 +90,18 @@ const actions = {
     commit('setItems', body.items)
     commit('setSubheaders', body.subheaders)
     commit('setSubitems', body.subitems)
+    commit('setSeries', body.series)
+    commit('setOptions', body.options)
+    let headers = []
+    for(let i = 0; i < body.items.length; i++) {
+      console.log(JSON.stringify(body.items[i]))
+      headers.push({
+        'id': i,
+        'label': body.items[i].name
+      })
+    }
+    commit('setChartsXHeaders', headers)
+    commit('setChartsYHeaders', headers)
   },
   open: ({ commit }) => {
     commit('setVisible', true)
@@ -90,6 +126,24 @@ const mutations = {
   },
   setSubitems: (state, subitems) => {
     state.subitems = subitems
+  },
+  setSeries: (state, series) => {
+    state.series = series
+  },
+  setOptions: (state, options) => {
+    state.options = options
+  },
+  setChartsXHeaders: (state, charts_xheaders) => {
+    state.charts_xheaders = charts_xheaders
+  },
+  setChartsXItems: (state, charts_xitems) => {
+    state.charts_xitems = charts_xitems
+  },
+  setChartsYHeaders: (state, charts_yheaders) => {
+    state.charts_yheaders = charts_yheaders
+  },
+  setChartsYItems: (state, charts_yitems) => {
+    state.charts_yitems = charts_yitems
   },
 }
 
