@@ -1,5 +1,19 @@
 import agent from 'superagent'
 
+const parseDate = (date) => {
+  if (!date) return null
+  const [day, month, year] = date.split('/')
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+}
+
+function matrix(m, n) {
+    var output = new Array(m)
+    for(let i = 0; i < m; i++) {
+        output[i] = new Array(n)
+    }
+    return output
+}
+
 const namespaced = true
 
 const state = {
@@ -14,7 +28,7 @@ const state = {
   charts_xheaders: [],
   charts_xitems: 1,
   charts_yheaders: [],
-  charts_yitems: [],
+  charts_yitems: [11, 18],
 }
 
 const getters = {
@@ -94,7 +108,6 @@ const actions = {
     commit('setOptions', body.options)
     let headers = []
     for(let i = 0; i < body.items.length; i++) {
-      console.log(JSON.stringify(body.items[i]))
       headers.push({
         'id': i,
         'label': body.items[i].name
@@ -105,6 +118,34 @@ const actions = {
   },
   open: ({ commit }) => {
     commit('setVisible', true)
+  },
+  draw: ({ commit, state, rootGetters }) => {
+    const db = rootGetters['dashboard/items']
+    const headers00 = state.charts_xheaders[state.charts_xitems].label
+    const items0 = []
+    for(let item of db) {
+      items0.push(parseDate(item[headers00]))
+    }
+    const headers0 = []
+    for(let yitem of state.charts_yitems) {
+      headers0.push(state.charts_yheaders[yitem].label)
+    }
+    const m = db.length + 1
+    const n = headers0.length + 1
+    const series = matrix(m, n)
+    series[0][0] = headers00
+    for(let i = 0; i < m-1; i++) {
+      series[i+1][0] = items0[i]
+    }
+    for(let j = 0; j < n-1; j++) {
+      series[0][j+1] = headers0[j]
+    }
+    for(let i = 0; i < m-1; i++) {
+      for(let j = 0; j < n-1; j++) {
+        series[i+1][j+1] = db[i][headers0[j]]
+      }
+    }
+    commit('setSeries', series)
   },
 }
 

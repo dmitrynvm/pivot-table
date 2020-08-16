@@ -7,7 +7,7 @@ from numpyencoder import NumpyEncoder
 
 
 app = sanic.Sanic("App Name")
-db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)[:100]
+db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)[:10]
 
 
 def dashboard_headers(input):
@@ -122,13 +122,7 @@ def options_subitems(input):
 
 
 def options_series():
-    output = [
-        ['Year', 'Sales', 'Expenses'],
-        ['2013', 1000,      400],
-        ['2014', 1170,      460],
-        ['2015',  660,       1120],
-        ['2016',  1030,      540]
-    ]
+    output = []
     return output
 
 

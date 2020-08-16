@@ -56,8 +56,6 @@ const actions = {
 
       const [day, month, year] = item['dob'].split('/')
       let fmt_date = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-      console.log('dates: ' + state.start_date + ' ' + fmt_date + ' ' + state.final_date + ' ' + ((state.start_date < fmt_date) && (fmt_date < state.final_date)))
-      //console.log('inequal: ' )
 
       is_valid = is_valid && (state.start_date < fmt_date) && (fmt_date < state.final_date)
       if(is_valid) {

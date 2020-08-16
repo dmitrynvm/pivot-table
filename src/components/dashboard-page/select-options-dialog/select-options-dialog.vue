@@ -71,6 +71,7 @@ export default {
       "close" : "dashboard/select-options/close",
       "drill" : "dashboard/select-options/drill",
       "submit" : "dashboard/submit",
+      "draw" : "dashboard/select-options/draw",
     }),
     ...mapMutations({
       "setStartDate" : "dashboard/setStartDate",
@@ -120,7 +121,6 @@ export default {
       >
         <v-card flat>
           <v-card-text>
-            <table cellspacing="3">
               <v-row>
                 <v-col cols="12" sm="6">
                   <v-text-field
@@ -220,8 +220,34 @@ export default {
                   </vue-good-table>
                 </v-col>
               </v-row>
-            </table>
           </v-card-text>
+          <v-card-actions>
+            <v-spacer/>
+            <v-btn
+              @click="close"
+              class="mx-1"
+              text
+              width="110"
+            >
+              Cancel
+            </v-btn>
+            <v-btn
+              @click="submit"
+              class="mx-1"
+              color="primary"
+              width="110"
+            >
+              <v-icon
+                class="mx-1"
+                left
+              >
+                done
+              </v-icon>
+              <span>
+                Apply
+              </span>
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-tab-item>
       <v-tab-item
@@ -259,37 +285,36 @@ export default {
                 </v-col>
               </v-row>
           </v-card-text>
+          <v-card-actions>
+            <v-spacer/>
+            <v-btn
+              @click="close"
+              class="mx-1"
+              text
+              width="110"
+            >
+              Cancel
+            </v-btn>
+            <v-btn
+              @click="draw"
+              class="mx-1"
+              color="primary"
+              width="110"
+            >
+              <v-icon
+                class="mx-1"
+                left
+              >
+                done
+              </v-icon>
+              <span>
+                Apply
+              </span>
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    <v-card-actions>
-      <v-spacer/>
-      <v-btn
-        @click="close"
-        class="mx-1"
-        text
-        width="110"
-      >
-        Cancel
-      </v-btn>
-      <v-btn
-        @click="submit"
-        class="mx-1"
-        color="primary"
-        width="110"
-      >
-        <v-icon
-          @click="submit"
-          class="mx-1"
-          left
-        >
-          done
-        </v-icon>
-        <span>
-          Apply
-        </span>
-      </v-btn>
-    </v-card-actions>
   </v-card>
 </v-dialog>
 </template>
