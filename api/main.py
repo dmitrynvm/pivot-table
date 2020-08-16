@@ -7,7 +7,7 @@ from numpyencoder import NumpyEncoder
 
 
 app = sanic.Sanic("App Name")
-db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)[:10]
+db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)
 
 
 def dashboard_headers(input):
