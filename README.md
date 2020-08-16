@@ -6,7 +6,9 @@ yarn api
 2. Start client
 yarn start
 
-You will see the following interface
+Tune filters and press apply button to see the changes in the dashboard screen
 ![image](screen1.png)
+Choose variables for analysis and press apply button to build the chart
+![image](screen2.png)
 
 
