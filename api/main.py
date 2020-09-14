@@ -3,10 +3,11 @@ import numpy
 import sanic
 import json
 from numpyencoder import NumpyEncoder
-
+from sanic_cors import CORS
 
 
 app = sanic.Sanic("App Name")
+CORS(app)
 db = pandas.read_csv('data1.csv', index_col=0, parse_dates=True)
 
 
